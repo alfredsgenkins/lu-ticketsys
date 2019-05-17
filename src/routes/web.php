@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +11,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'EventsController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('event', 'EventsController', ['except' => ['edit', 'update', 'destroy']]);
+Route::get('admin', 'AdminController');
+Route::resource('category', 'CategoryController', ['only' => ['create', 'store']]);
+Route::resource('ticket', 'TicketsController', ['only' => ['create', 'store']]);
+Route::get('events/search','EventsController@getSearch');
+Route::post('events/search','EventsController@postSearch');
+Route::get('cart', 'CartController@index');
+Route::get('cart/add/{id}', 'CartController@add');
+Route::get('cart/remove/{id}', 'CartController@remove');
+Route::get('order', 'OrderController@index');
+Route::get('orders', 'OrderController@listOrders');
+Route::get('orders/show/{id}', 'OrderController@showOrder');
+Route::get('order/place', 'OrderController@placeOrder');
