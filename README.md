@@ -1,11 +1,3 @@
-<p align="center">
-  <img src="https://hsto.org/webt/rf/x1/77/rfx177j6b8dxtjzfx97-rp7zzoe.png" alt="" style="width: 100%" />
-</p>
-
----
-
-This is an example of dockerized Laravel application, integrated with GitLab CI _(sources testing and images building)_.
-
 ## System requirements
 
 For local application starting (for development) make sure that you have locally installed next applications:
